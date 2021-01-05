@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -72,6 +73,65 @@ int approx_e_to_pow_x() {
 	}
 
 	cout << "The result of the expression is: " << answer;
+
+	return 0;
+}
+
+// calculates a tip from a bill and percentage
+int tip_calculator(){
+	
+	float bill_amt;
+	float tip_pct;
+
+	cout << "Enter the bill amount (in dollars): ";
+	// get the bill amount from the user
+	cin >> bill_amt;
+
+	cout << "Enter the tip percentage (%): ";
+	// get the tip percentage from the user
+	cin >> tip_pct;
+
+	// convert tip_pct to a decimal, calculate tip and total
+	float dec_tip = tip_pct / 100;
+	float tip = bill_amt * dec_tip;
+	float total = bill_amt + tip;
+
+	// output response to user
+	cout << "You need to pay $" << total << " that is $" << bill_amt << " for the food + $" << tip << " as a tip." << endl;
+
+	return 0;
+}
+
+// test if an input is a palindrome
+int test_palindrome(){
+	
+	string five_digit_nbr;
+	int str_end, str_start = 0;
+	bool palind = true;
+
+	cout << "Enter a five digit value: ";
+	cin >> five_digit_nbr;
+	//getline(cin, five_digit_nbr);
+
+	str_end = five_digit_nbr.length() - 1;
+
+	while (str_start < str_end){
+
+		if (five_digit_nbr[str_start] != five_digit_nbr[str_end]){
+			palind = false;
+			break;
+		}
+
+		str_start++;
+		str_end--;
+	}
+
+	if (palind)	{
+		cout << five_digit_nbr << " is a palindrome!";
+	}
+	else {
+		cout << "Sorry, " << five_digit_nbr << " is not a palindrome.";
+	}
 
 	return 0;
 }
