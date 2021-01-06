@@ -16,6 +16,8 @@ int main()
         cout << "\t2) Approximate E to power of X\n";
         cout << "\t3) Tip Calculator\n";
         cout << "\t4) Test if Palindrome\n";
+        cout << "\t5) Temperature Conversion\n";
+        cout << "\t6) Radius of an Ellipse\n";
         cout << "\t0) Quit\n";
 
         cout << "\nOption: ";
@@ -26,6 +28,8 @@ int main()
             case 2: approx_e_to_pow_x(); break;
             case 3: tip_calculator(); break;
             case 4: test_palindrome(); break;
+            case 5: temperature_conversion(); break;
+            case 6: ellipse_radius(); break;
             case 0: exit = true; break;
         }
     }

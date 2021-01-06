@@ -135,3 +135,59 @@ int test_palindrome(){
 
 	return 0;
 }
+
+
+// toCelsius is a switch to determine if the temperature is being converted to
+// Celsius or Farenheit, with conversion to Celsius set to default
+double convertTemp(double temp, bool toCelsius = true){
+	double convTemp;
+
+	if (toCelsius)	{
+		convTemp = (temp - 32.0) * (5.0 / 9.0);
+	} else {
+		convTemp = (temp * (9.0 / 5.0)) + 32.0;
+	}
+	return convTemp;
+}
+
+int temperature_conversion(){
+
+	double temp;
+	int userSays;
+
+	cout << "\n\tEnter a temperature: ";
+	cin >> temp;
+	cout << "\n\tConvert to:\n\t 1) Farenheit \n\t 2) Celsius \n\t";
+	cin >> userSays;
+
+	userSays = userSays - 1;
+
+	cout << "\n\t" << temp << " is equal to " << convertTemp(temp, userSays) << " degrees" << endl;
+
+	return 0;
+}
+
+// gets the radius of an ellipse
+int ellipse_radius(){
+
+	cout << "What is your major radius?" << endl;
+	double major_radius;
+	// get the major radius from the user
+	cin >> major_radius;
+
+	cout << "What is your minor radius?" << endl;
+	double minor_radius;
+	// get the minor radius from the user
+	cin >> minor_radius;
+
+	// declare the constant value of Pi
+	const double PI = 3.1459;
+
+	// area of an ellipse -> Pi * A * B
+	double ellip_area;
+	ellip_area = major_radius * minor_radius * PI;
+
+	cout << "The area of an ellipse with radius " << minor_radius << " and radius " << major_radius << " is " << ellip_area << endl;
+
+	return 0;
+}
