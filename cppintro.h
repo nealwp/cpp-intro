@@ -191,3 +191,43 @@ int ellipse_radius(){
 
 	return 0;
 }
+
+
+// returns the sum of the numbers in a integer without the use of arrays or string functions
+int sum_integer(){
+
+	int number;
+	int digit = 0;
+
+	cout << "Enter a 10 digit number: ";
+	cin >> number;
+
+	while (number > 0) {
+		digit = digit + number % 10;
+		number = number / 10;
+	}
+
+	cout << "The sum is: " << digit;
+
+	return 0;
+}
+
+
+// tests if a year is a leap year, returns number of days
+int days_in_year(){
+
+	int year;
+	int daysInYear = 365;
+
+	cout << "Enter a year: ";
+	cin >> year;
+
+	if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0){
+		daysInYear = 366;
+	}
+
+	cout << " There are " << to_string(daysInYear) << " days in " << to_string(year) << ".";
+
+	return 0;
+
+}
