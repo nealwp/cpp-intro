@@ -6,14 +6,18 @@ using namespace std;
 
 
 // finds a factorial of a positive number less than 16
-double factorial(double num){
+double factorial(double num)
+{
 
-	while ((num < 1) || (num > 16))	{
+	while ((num < 1) || (num > 16))
+	{
 
-		if (num < 1){
+		if (num < 1)
+		{
 			cout << "\n\tNumber must be positive! Try again.\n";
 		}
-		else if (num > 0){
+		else if (num > 0)
+		{
 			break;
 		}
 	}
@@ -21,7 +25,8 @@ double factorial(double num){
 	int f;
 	int fact = 1;
 
-	for (int i = 1; i < num; i++){
+	for (int i = 1; i < num; i++)
+	{
 		f = num - i;
 		fact = fact * f;
 	}
@@ -53,7 +58,8 @@ int estimate_e()
 }
 
 // approximates e to the power of user input x value
-int approx_e_to_pow_x() {
+int approx_e_to_pow_x() 
+{
 
 	double x, eval;
 	// set default values to begin evaluation of expression
@@ -64,7 +70,8 @@ int approx_e_to_pow_x() {
 
 	// e-to-x approximation = 1 + (x^1 / 1) + (x^2 / 2) + (x^3 / 6) + (x^4 / 24) + (x^5 / 120)
 
-	for (int i = 1; i < 6; i++) {
+	for (int i = 1; i < 6; i++) 
+	{
 
 		eval = pow(x, i) / denom;
 		// increment the denominator for next iteration of loop
@@ -78,7 +85,8 @@ int approx_e_to_pow_x() {
 }
 
 // calculates a tip from a bill and percentage
-int tip_calculator(){
+int tip_calculator()
+{
 	
 	float bill_amt;
 	float tip_pct;
@@ -103,7 +111,8 @@ int tip_calculator(){
 }
 
 // test if an input is a palindrome
-int test_palindrome(){
+int test_palindrome()
+{
 	
 	string five_digit_nbr;
 	int str_end, str_start = 0;
@@ -115,9 +124,11 @@ int test_palindrome(){
 
 	str_end = five_digit_nbr.length() - 1;
 
-	while (str_start < str_end){
+	while (str_start < str_end)
+	{
 
-		if (five_digit_nbr[str_start] != five_digit_nbr[str_end]){
+		if (five_digit_nbr[str_start] != five_digit_nbr[str_end])
+		{
 			palind = false;
 			break;
 		}
@@ -126,10 +137,12 @@ int test_palindrome(){
 		str_end--;
 	}
 
-	if (palind)	{
+	if (palind)	
+	{
 		cout << five_digit_nbr << " is a palindrome!";
 	}
-	else {
+	else 
+	{
 		cout << "Sorry, " << five_digit_nbr << " is not a palindrome.";
 	}
 
@@ -139,18 +152,23 @@ int test_palindrome(){
 
 // toCelsius is a switch to determine if the temperature is being converted to
 // Celsius or Farenheit, with conversion to Celsius set to default
-double convertTemp(double temp, bool toCelsius = true){
+double convertTemp(double temp, bool toCelsius = true)
+{
 	double convTemp;
 
-	if (toCelsius)	{
+	if (toCelsius)	
+	{
 		convTemp = (temp - 32.0) * (5.0 / 9.0);
-	} else {
+	} 
+	else 
+	{
 		convTemp = (temp * (9.0 / 5.0)) + 32.0;
 	}
 	return convTemp;
 }
 
-int temperature_conversion(){
+int temperature_conversion()
+{
 
 	double temp;
 	int userSays;
@@ -168,7 +186,8 @@ int temperature_conversion(){
 }
 
 // gets the radius of an ellipse
-int ellipse_radius(){
+int ellipse_radius()
+{
 
 	cout << "What is your major radius?" << endl;
 	double major_radius;
@@ -194,7 +213,8 @@ int ellipse_radius(){
 
 
 // returns the sum of the numbers in a integer without the use of arrays or string functions
-int sum_integer(){
+int sum_integer()
+{
 
 	int number;
 	int digit = 0;
@@ -202,7 +222,8 @@ int sum_integer(){
 	cout << "Enter a 10 digit number: ";
 	cin >> number;
 
-	while (number > 0) {
+	while (number > 0) 
+	{
 		digit = digit + number % 10;
 		number = number / 10;
 	}
@@ -214,7 +235,8 @@ int sum_integer(){
 
 
 // tests if a year is a leap year, returns number of days
-int days_in_year(){
+int days_in_year()
+{
 
 	int year;
 	int daysInYear = 365;
@@ -222,7 +244,8 @@ int days_in_year(){
 	cout << "Enter a year: ";
 	cin >> year;
 
-	if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0){
+	if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0)
+	{
 		daysInYear = 366;
 	}
 
@@ -230,4 +253,190 @@ int days_in_year(){
 
 	return 0;
 
+}
+
+
+// takes a max width from user and prints a diamond shape on the screen.
+// exits if user inputs a width greater than 100
+
+int print_diamond_shape()
+{
+
+	while (true)
+	{
+
+		char star = '*';
+		char space = ' ';
+		int diamondWidth = 2;
+
+		while (true)
+		{
+			cout << "\n    Enter max width for your diamond, or 0 to exit: ";
+			cin >> diamondWidth;
+			if (diamondWidth % 2 != 0 && diamondWidth < 101)
+			{
+				cout << "\n\n";
+				break;
+			}
+			else if (diamondWidth > 100)
+			{
+				cout << "\n    bad choice. goodbye." << endl;
+				return 0;
+			}
+
+			cout << "\n   Even numbers are not allowed! Try again. \n" << endl;
+		}
+
+		int num_spaces = diamondWidth / 2;
+
+		for (int i = 1; i < diamondWidth + 2; i += 2)
+		{
+
+			string star_line = string(i, star);
+			string space_line = string(num_spaces--, space);
+
+			cout << space_line << star_line << endl;
+
+		}
+
+		num_spaces = 1;
+
+		for (int j = diamondWidth - 2; j > 0; j -= 2)
+		{
+
+			string star_line = string(j, star);
+			string space_line = string(num_spaces++, space);
+
+			cout << space_line << star_line << endl;
+		}
+
+	}
+	return 0;
+}
+
+// creates a pyramid of odd numbers
+void oddPyramid()
+{
+	int lines;
+
+	cout << "Enter a number of lines: ";
+	cin >> lines;
+
+	int middle = 1;
+	int eol = lines + (lines - 1);
+	int line2 = eol;
+
+	do
+	{
+		for (int i = eol; i > middle; i = i - 2)
+		{
+
+			cout << " " << i;
+		}
+
+		for (int i = middle; i <= eol; i = i + 2)
+		{
+			cout << " " << i;
+		}
+
+		cout << endl;
+		eol = eol - 2;
+		lines--;
+
+		if (lines > 5)
+		{
+			cout << string((line2 + 1) - eol, ' ');
+		}
+		else
+		{
+			cout << string((line2 + 2) - eol, ' ');
+		}
+
+	} while (eol > 0);
+
+}
+
+
+// returns all prime numbers in a given range
+int find_primes_in_range()
+{
+	int m;
+	int n;
+
+	cout << "\tEnter a start number: ";
+	cin >> m;
+	cout << "\tEnter an end number: ";
+	cin >> n;
+
+	while (m <= n)
+	{
+		bool prime = true;
+
+		for (int i = 2; i <= m / 2; i++)
+		{
+			if (m % i == 0)
+			{
+				prime = false;
+				break;
+			}
+		}
+
+		if (prime)
+		{
+			cout << m << " ";
+		}
+
+		m++;
+	}
+	return 0;
+}
+
+
+// prints a tables of squares and cubes for numbers 0-10
+int squares_and_cubes()
+{
+	cout << "\n\t<<SQUARE & CUBE TABLE>>\n" << endl;
+	cout << "\tnumber\tsquare\tcube" << endl;
+	cout << "\t------\t------\t----" << endl;
+
+	for (int i = 0; i < 11; i++)
+	{
+		cout << "\t" << i << "\t" << i * i << "\t" << i * i * i << endl;
+	}
+
+	return 0;
+}
+
+// reverses a given number
+int reverse_number()
+{
+	int n;
+	cout << "\tEnter a number: ";
+	cin >> n;
+
+	int reverse = 0;
+
+	while (n > 0)
+	{
+		reverse = reverse * 10 + (n % 10);
+		n = n / 10;
+	}
+
+	cout << "\n\n\t" << reverse;
+
+	return 0;
+}
+
+//prints a square of given size
+void squareOfAsterisks()
+{
+	int side;
+
+	cout << "\n\tEnter the number the length of a side: ";
+	cin >> side;
+
+	for (int i = 0; i < side; i++)
+	{
+		cout << string(side, '*') << endl;
+	}
 }
