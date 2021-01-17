@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
-
 
 // finds a factorial of a positive number less than 16
 double factorial(double num)
@@ -439,4 +439,365 @@ void squareOfAsterisks()
 	{
 		cout << string(side, '*') << endl;
 	}
+}
+
+// calculates and prints the area of a polygon
+int area_of_polygon()
+{
+	// area = (n * s^2) / (4 * tan(pi/n))
+
+	int sides;
+	double lenSide;
+	const double PI = 3.141592;
+	double plygnArea;
+
+	cout << "\n\tEnter the number of sides: ";
+	cin >> sides;
+	cout << "\n\tEnter the length of a side: ";
+	cin >> lenSide;
+
+	plygnArea = sides * (lenSide * lenSide) / (4 * tan((PI / sides)));
+
+	cout << "\n\tThe area of the polygon is " << plygnArea << endl;
+
+	return 0;
+
+}
+
+// returns the count of each distinct character is a string
+int count_in_string()
+{
+	string str;
+
+	cout << "\n\tEnter a string: ";
+	cin >> str;
+	cout << endl;
+
+	int count[26];
+
+	for (int i = 0; i < 26; i++)
+	{
+		count[i] = 0;
+	}
+
+	for (int i = 0; str[i] != '\0'; i++)
+	{
+		count[str[i] - 'a'] = count[str[i] - 'a'] + 1;
+	}
+
+	for (int i = 0; i < 26; i++)
+	{
+		if (count[i] != 0)
+		{
+			cout << "\t" << char('a' + i) << " occured " << count[i] << " times." << endl;
+		}
+	}
+
+	return 0;
+}
+
+// prints a fibonacci sequence from 1 to a given number
+// always remember you wrote this with no help
+void fibonacciThis(int startAt = 1)
+{
+	int stopAt;
+
+	cout << "\n\tEnter a number to Fibonacci to: ";
+	cin >> stopAt;
+
+	cout << "\n\tFibnoacci sequence for " << startAt << " to " << stopAt << ": " << startAt << "  ";
+
+	for (int i = startAt, j = startAt; i < stopAt; i = i + j, j = i - j)
+	{
+		cout << i << "  ";
+	}
+
+	cout << endl;
+}
+
+// computes the perimeter of a valid triangle
+int triangle_perimeter()
+{
+	int edge1, edge2, edge3, perimeter;
+
+	cout << "Triangle edge 1 is: ";
+	cin >> edge1;
+	cout << endl << "Triangle edge 2 is: ";
+	cin >> edge2;
+	cout << endl << "Triangle edge 3 is: ";
+	cin >> edge3;
+
+	if (edge1 + edge2 > edge3 && edge1 + edge3 > edge2 && edge2 + edge3 > edge1)
+	{
+		perimeter = edge1 + edge2 + edge3;
+		cout << "The perimeter is " << perimeter;
+	}
+	else
+	{
+		cout << endl << "Input is invalid!";
+	}
+
+	return 0;
+}
+
+
+// finds n in the integer element
+void searchAnElement()
+{
+	int n, s, val;
+	bool found = false;
+
+	cout << "\n\tEnter a 7 digit integer: ";
+	cin >> n;
+	cout << "\tEnter search element: ";
+	cin >> s;
+
+	while (n > 0)
+	{
+		val = n % 10;
+		if (val == s)
+		{
+			found = true;
+			break;
+		}
+		else
+		{
+			n = n / 10;
+		}
+	}
+
+	if (found)
+	{
+		cout << "\tElement found.." << endl;
+	}
+	else
+	{
+		cout << "\tNot found.." << endl;
+	}
+}
+
+// uses Cramer's rule to solve a linear equation
+int solve_linear_equation()
+{
+/*
+
+	Cramer's rule
+	ax + by = e
+	cx + dy = f
+
+	x = ed - bf / ad - bc
+	y = af - ec / ad - bc
+
+	if ad - bc = 0, there is no solution
+
+*/
+
+	double a, b, c, d, e, f, x, y;
+
+	cout << "Enter a, b, c, d, e, and f: ";
+	cin >> a >> b >> c >> d >> e >> f;
+
+	if ((a * d) - (b * c) != 0)
+	{
+		x = ((e * d) - (b * f)) / ((a * d) - (b * c));
+		y = ((a * f) - (e * c)) / ((a * d) - (b * c));
+		cout << endl << "x is: " << x;
+		cout << endl << "y is: " << y;
+	}
+	else
+	{
+		cout << endl << "The equation has no solution.";
+	}
+
+	return 0;
+}
+
+// takes a number of rows and columns from user and prints a matrix of triangle shapes
+int triangle_matrix()
+{
+	int rows;
+	int columns;
+
+	cout << "\n\tEnter the number of rows: ";
+	cin >> rows;
+	cout << "\n\tEnter the number of columns: ";
+	cin >> columns;
+
+	cout << endl;
+
+	for (int j = 0; j < rows; j++)
+	{
+		char star = '*';
+		char space = ' ';
+		int  triWidth = 5;
+
+		int spcnum = triWidth / 2;
+
+		for (int i = 1; i < triWidth + 2; i += 2)
+		{
+			string strline = string(i, star);
+			string spcline = string(spcnum--, space);
+
+			for (int j = 0; j < columns; j++)
+			{
+				cout << spcline << strline << spcline;
+			}
+
+			cout << endl;
+
+		}
+	}
+
+	return 0;
+}
+
+// returns sum, average and total above average for a set of numbers
+int sum_average_above_avg()
+{
+	int numbers[4];
+	int sum, abv_avg = 0;
+	double average;
+
+	cout << "Enter a value: ";
+	cin >> numbers[0];
+
+	for (int i = 1; i < 4; i++)
+	{
+		cout << "Enter the next value: ";
+		cin >> numbers[i];
+	}
+
+	sum = numbers[0] + numbers[1] + numbers[2] + numbers[3];
+	average = double(sum) / 4;
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (numbers[i] > average)
+		{
+			abv_avg++;
+		}
+	}
+
+	cout << "           Sum: " << sum << endl;
+	cout << "       Average: " << average << endl;
+	cout << " Above Average: " << abv_avg << endl;
+
+	return 0;
+}
+
+
+// takes input from the user to calculate a mathematical expression
+int orderOfOperations()
+{
+	double a, b, c, d, r;
+	char var_arr[5] = { 'a', 'b', 'c', 'd', 'r' };
+	double num_arr[5] = {};
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Enter the value of " << var_arr[i] << ": ";
+		cin >> num_arr[i];
+	}
+
+	a = num_arr[0];
+	b = num_arr[1];
+	c = num_arr[2];
+	d = num_arr[3];
+	r = num_arr[4];
+
+	// math expression = (4 / (3 * (r + 34))) - (9 * (a + (b * c))) + ((3 + (d * (2 + a))) / (a + (b * d))) 
+
+	double output = (4 / (3 * (r + 34))) - (9 * (a + (b * c))) + ((3 + (d * (2 + a))) / (a + (b * d)));
+
+	cout << "The result of the expression is: " << output;
+
+	return 0;
+}
+
+// returns the elements in one array that exist in another
+void commonElements()
+{
+	int n = 0;
+	int arr[50];
+	int arr2[50];
+
+	cout << "\n\tEnter the number of elements for each list: ";
+	cin >> n;
+	cout << "\n\tEnter " << n << " numbers for list1: ";
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i];
+	}
+	cout << "\n\tEnter " << n << " numbers for list2: ";
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr2[i];
+	}
+
+	int outArr[50];
+	int outCount = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (arr[i] == arr2[j])
+			{
+				outArr[outCount] = arr2[j];
+				outCount++;
+			}
+		}
+	}
+
+	if (outCount > 0)
+	{
+		cout << "\n\tThe matching elements are: ";
+		for (int i = 0; i < outCount; i++)
+		{
+			cout << outArr[i] << " ";
+		}
+		cout << endl;
+	}
+	else
+	{
+		cout << "There are no matching elements." << endl;
+	}
+}
+
+// finds the smallest element in an user input array
+int minInArray()
+{
+	int arr[50];
+	int num_elem;
+
+	cout << "\n\tEnter the number of elements you have: ";
+	cin >> num_elem;
+
+	cout << "\n\tEnter " << num_elem << " elements, separated by a space: ";
+
+	for (int i = 0; i < num_elem; i++)
+	{
+		cin >> arr[i];
+	}
+
+	int arrMin = arr[0];
+
+	for (int i = 0; i < num_elem; i++)
+	{
+		if (arrMin > arr[i])
+		{
+			arrMin = arr[i];
+		}
+	}
+
+	cout << "\n\tThe smallest element in the array is: " << arrMin << endl;
+
+	return 0;
+}
+
+
+
+void arrayMin(int arr[], int num_elem)
+{
+	
 }
