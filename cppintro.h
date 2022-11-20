@@ -283,6 +283,11 @@ int print_diamond_shape()
 				cout << "\n    bad choice. goodbye." << endl;
 				return 0;
 			}
+			else if (diamondWidth == 0)
+			{
+				cout << "\n   Thanks you, and goodbye." << endl;
+				return 0;
+			}
 
 			cout << "\n   Even numbers are not allowed! Try again. \n" << endl;
 		}

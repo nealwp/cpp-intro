@@ -32,6 +32,5 @@
 *.app
 
 # directories
-todo/
 Debug/
 .vs/
