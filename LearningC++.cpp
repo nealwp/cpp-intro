@@ -4,13 +4,45 @@
 #include "cppintro.h"
 using namespace std;
 
+void pageOne();
+void pageTwo();
+
 int main()
 {   
+    system("CLS");
+
     int input;
     bool exit = false;
 
-    while (!exit) {
+    while (!exit){
 
+        cout << "\n\nChoose an option:\n\n";
+        cout << "\t1) Easier Stuff (Loops, Calculation, Printing, Simple Arrays)\n";
+        cout << "\t2) Fancier Stuff (OOP, Templates, Pointers, Matrices)\n";
+        cout << "\n\t0) Quit\n";
+
+        cout << "\nOption: ";
+        cin >> input;
+
+        switch (input)
+        {
+            case 1: pageOne(); break;
+            case 2: pageTwo(); break;
+            case 0: exit = true; break;
+        }
+    }
+}
+
+void pageOne() {
+
+    int input;
+    bool exit = false;
+
+    while (!exit)
+    {
+
+        cout << "-- PAGE 1 --\n";
+        cout << "------------\n";
         cout << "\n\nChoose an option:\n\n";
         cout << "\t1) Estimate Euler's Number\t10) Odd Pyramid\t\t\t19) Find in Integer\n";
         cout << "\t2) Approximate E to power of X\t11) Find Primes in Range\t20) Solve Linear Equation\n";
@@ -19,14 +51,15 @@ int main()
         cout << "\t5) Temperature Conversion\t14) Print Square\t\t23) Order of Operations\n";
         cout << "\t6) Radius of an Ellipse\t\t15) Area of Polygon\t\t24) Common in Arrays\n";
         cout << "\t7) Sum an Integer\t\t16) Count in String\t\t25) Minimum in Array\n";
-        cout << "\t8) Days In Year\t\t\t17) Fibonacci\n";
-        cout << "\t9) Diamond Shape\t\t18) Triangle Perimeter\n";
-        cout << "\n\t0) Quit\n";
+        cout << "\t8) Days In Year\t\t\t17) Fibonacci\t\t\t26) Square Roots in Range\n";
+        cout << "\t9) Diamond Shape\t\t18) Triangle Perimeter\t\t27) Wordy Phone Number\n";
+        cout << "\n\t0) Back\n";
 
         cout << "\nOption: ";
         cin >> input;
 
-        switch (input) {
+        switch (input)
+        {
             case 1: estimate_e(); break;
             case 2: approx_e_to_pow_x(); break;
             case 3: tip_calculator(); break;
@@ -52,8 +85,35 @@ int main()
             case 23: orderOfOperations(); break;
             case 24: commonElements(); break;
             case 25: minInArray(); break;
+            case 26: squareRoots(); break;
+            case 27: wordyPhoneNumber(); break;
             case 0: exit = true; break;
         }
     }
 }
 
+void pageTwo() {
+
+    int input;
+    bool exit = false;
+
+    while (!exit)
+    {
+
+        cout << "-- PAGE 2 --\n";
+        cout << "------------\n";
+        cout << "\n\nChoose an option:\n\n";
+        cout << "\t1) #########\n";
+
+        cout << "\n\t0) Quit\n";
+
+        cout << "\nOption: ";
+        cin >> input;
+
+        switch (input)
+        {
+        case 1: /**/; break;
+        case 0: exit = true; break;
+        }
+    }
+}

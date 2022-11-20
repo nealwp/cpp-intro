@@ -795,9 +795,85 @@ int minInArray()
 	return 0;
 }
 
-
-
-void arrayMin(int arr[], int num_elem)
+// finds square roots for a range of numbers
+void squareRoots()
 {
-	
+
+	double numOne, numTwo;
+
+	cout << "\tEnter two numbers to find a square roots in range: ";
+	cin >> numOne >> numTwo;
+	cout << endl;
+
+	cout << "\n\tnumber\t\tsquare root";
+	cout << "\n\t------\t\t-----------";
+
+	for (double i = numOne; i < numTwo + 2; i += 2.0)
+	{
+		cout << "\n\t" << i << "\t\t" << sqrt(i);
+	}
+
+	cout << endl;
+}
+
+// converts a phone number with letters to digits
+int wordyPhoneNumber()
+{
+	string phoneNumber;
+
+	cout << "\n\tEnter a phone number with a word in it: ";
+	cin >> phoneNumber;
+	cout << "\n\t";
+
+	for (size_t i = 0; i < phoneNumber.length(); i++)
+	{
+		if (phoneNumber[i] > 97)
+		{
+			phoneNumber[i] = phoneNumber[i] - 32;
+		}
+
+		switch (phoneNumber[i])
+		{
+			case 'A':
+			case 'B':
+			case 'C':
+				phoneNumber[i] = '2'; break;
+			case 'D':
+			case 'E':
+			case 'F':
+				phoneNumber[i] = '3'; break;
+			case 'G':
+			case 'H':
+			case 'I':
+				phoneNumber[i] = '4'; break;
+			case 'J':
+			case 'K':
+			case 'L':
+				phoneNumber[i] = '5'; break;
+			case 'M':
+			case 'N':
+			case 'O':
+				phoneNumber[i] = '6'; break;
+			case 'P':
+			case 'Q':
+			case 'R':
+			case 'S':
+				phoneNumber[i] = '7'; break;
+			case 'T':
+			case 'U':
+			case 'V':
+				phoneNumber[i] = '8'; break;
+			case 'W':
+			case 'X':
+			case 'Y':
+			case 'Z':
+				phoneNumber[i] = '9'; break;
+		}
+
+	}
+
+	cout << phoneNumber;
+	cout << endl;
+
+	return 0;
 }
